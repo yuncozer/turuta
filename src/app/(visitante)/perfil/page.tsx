@@ -1,0 +1,13 @@
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import { ProfileView } from "@/components/profile-view";
+
+export const metadata: Metadata = { title: "Perfil" };
+
+export default function ProfilePage() {
+  return (
+    <Suspense>
+      <ProfileView />
+    </Suspense>
+  );
+}

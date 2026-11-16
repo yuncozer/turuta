@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/*
+ * Identidad visual provisional (basada en los mockups de la propuesta).
+ * El diseño final se define con el cliente: basta con cambiar estos tokens.
+ */
+@theme {
+  --color-brand-900: #241047;
+  --color-brand-800: #2f1659;
+  --color-brand-700: #3d1d6e;
+  --color-brand-600: #54308f;
+  --color-brand-100: #ece6f7;
+  --color-accent-600: #d4511d;
+  --color-accent-500: #e8622c;
+  --color-accent-100: #fde9df;
+  --color-merchant-700: #0f6b6b;
+  --color-merchant-100: #e0f2f1;
+  --color-cream: #f4f0ea;
+  --color-ink: #1d1530;
+  --color-muted: #6b6478;
+  --color-line: #e4ded5;
+  --color-ok: #15803d;
+  --color-ok-100: #e7f6ec;
+  --color-danger: #b42318;
+  --color-danger-100: #fdecea;
+
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+}
+
+/* Placeholder de imagen cuando el comercio aún no envía logo o banner. */
+.img-placeholder {
+  background: linear-gradient(135deg, #c9b8ec 0%, #a7d8e0 100%);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
