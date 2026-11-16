@@ -7,9 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
     "db:seed": "node --no-warnings scripts/gen-seed.mts",
-    "db:test": "bash supabase/tests/run.sh"
+    "db:test": "bash supabase/tests/run.sh",
+    "test:e2e": "node tests/e2e/flujo-completo.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",
@@ -31,6 +32,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.6",
+    "playwright": "^1.63.0",
     "tailwindcss": "4.3.3",
     "typescript": "^5"
   },

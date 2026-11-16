@@ -42,7 +42,7 @@ on conflict do nothing;
 insert into public.coupons (id, merchant_id, title, terms, kind, total_quota, valid_until, is_active) values
   ('00000000-0000-4000-a000-000000000001', '00000000-0000-4000-8000-000000000001', 'Pizza pequeña gratis', 'Por la compra de una pizza familiar. 1 por persona.', 'cupo', 100, '2027-01-31T23:59:00-04:00', true),
   ('00000000-0000-4000-a000-000000000002', '00000000-0000-4000-8000-000000000002', '2x1 en atracciones', 'Válido de lunes a jueves en atracciones seleccionadas.', 'cupo', 200, '2027-01-31T23:59:00-04:00', true),
-  ('00000000-0000-4000-a000-000000000003', '00000000-0000-4000-8000-000000000003', '2x1 en hamburguesa clásica', 'Válido hasta el 31 de enero. 1 por persona.', 'cupo', 60, '2027-01-31T23:59:00-04:00', true),
+  ('00000000-0000-4000-a000-000000000003', '00000000-0000-4000-8000-000000000003', '2x1 en hamburguesa clásica', '1 por persona.', 'cupo', 60, '2027-01-31T23:59:00-04:00', true),
   ('00000000-0000-4000-a000-000000000004', '00000000-0000-4000-8000-000000000004', '10 % mostrando la app', 'Promoción abierta para usuarios registrados. Muestra tu código en caja.', 'abierta', null, '2027-02-15T23:59:00-04:00', true)
 on conflict do nothing;
 

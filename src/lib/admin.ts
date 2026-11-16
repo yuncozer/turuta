@@ -1,11 +1,14 @@
 import "server-only";
 import { redirect } from "next/navigation";
+import { connection } from "next/server";
 import { isSupabaseConfigured } from "@/lib/env";
 import { getServerClient } from "@/lib/supabase/server";
 
 /** Devuelve la sesión de administrador, o null si quien llama no lo es (para rutas API). */
 export async function getAdmin() {
   if (!isSupabaseConfigured) return null;
+  // Datos privados y siempre frescos: nunca forman parte de un prerender ni de un prefetch.
+  await connection();
   const supabase = await getServerClient();
   const { data } = await supabase.auth.getUser();
   if (!data.user) return null;

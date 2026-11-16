@@ -289,3 +289,18 @@ Si un bloqueante se retrasa, la fecha dependiente se mueve lo mismo; se informa 
 - [ ] Sin errores abiertos de severidad alta en Sentry.
 - [ ] Panel entregado con capacitación y manual breve (`docs/MANUAL_ADMIN.md`).
 - [ ] Acta de entrega Beta enviada al cliente → factura del 30 %.
+
+---
+
+## 13. Estado de avance
+
+### Incremento 1 — Beta core (16 nov) ✅
+Base técnica completa y funciones core de B: contenido público cacheado, cuentas con consentimiento, perfil y rifa, soft-gate, cupones QR atómicos, modo comercio, panel (resumen, comercios, cupones, cronograma, usuarios, Excel), métricas por comercio, PWA y modo demo.
+Verificado con: pruebas SQL (`npm run db:test`: RLS, canje único, bloqueo de PIN, ráfaga de 300 solicitudes → exactamente 50 cupones) y flujo E2E en navegador (`npm run test:e2e`).
+
+### Próximos incrementos
+| # | Contenido | Semana |
+|---|---|---|
+| 2 | Turnstile + límites de uso; Sentry; envío de reporte por correo (Resend) | 2 |
+| 3 | Favoritos, "Mi agenda" (.ics), "Para ti", búsqueda avanzada | 3 |
+| 4 | Pruebas de carga k6, Lighthouse, sorteo de rifa desde el panel, manual del admin | 4 |

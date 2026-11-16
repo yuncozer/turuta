@@ -45,7 +45,7 @@ async function MerchantDetail({ params }: Pick<PageProps<"/comercios/[slug]">, "
         </Link>
       </div>
       <div className="px-4">
-        <MerchantImage merchant={merchant} kind="logo" className="-mt-8 h-16 w-16 rounded-2xl border-4 border-cream" />
+        <MerchantImage merchant={merchant} kind="logo" className="relative -mt-8 h-16 w-16 rounded-2xl border-4 border-cream" />
         <p className="mt-2 text-[11px] font-semibold uppercase tracking-wider text-merchant-700">{category}{planText}</p>
         <h1 className="text-2xl font-bold">{merchant.name}</h1>
         {merchant.description && <p className="mt-1 text-sm text-muted">{merchant.description}</p>}

@@ -13,16 +13,15 @@ import { TAGS } from "@/lib/data";
  */
 
 const text = (max = 500) => z.string().trim().max(max);
+// Campos opcionales: ausentes del formulario o vacíos → null.
 const optional = (max = 500) =>
   z
     .string()
     .trim()
     .max(max)
-    .transform((v) => (v === "" ? null : v));
-const optionalTime = z
-  .string()
-  .trim()
-  .transform((v) => (v === "" ? null : v));
+    .optional()
+    .transform((v) => (v ? v : null));
+const optionalTime = optional(8);
 
 const merchantSchema = z.object({
   id: optional(64),

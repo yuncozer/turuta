@@ -181,7 +181,7 @@ export const demoCoupons: Coupon[] = [
   c(3, {
     merchant_id: demoMerchants[2].id,
     title: "2x1 en hamburguesa clásica",
-    terms: "Válido hasta el 31 de enero. 1 por persona.",
+    terms: "1 por persona.",
     kind: "cupo",
     total_quota: 60,
     valid_until: "2027-01-31T23:59:00-04:00",
