@@ -89,7 +89,7 @@ export function SignUpForm() {
       <Field label="WhatsApp" name="whatsapp" type="tel" autoComplete="tel" required placeholder="+58 414 000 0000" pattern="[+0-9 ()-]{10,20}" />
       <Field label="Correo" name="email" type="email" autoComplete="email" required placeholder="maria@correo.com" />
       <Field label="Contraseña" name="password" type="password" autoComplete="new-password" required minLength={8} placeholder="Mínimo 8 caracteres" />
-      <div className="rounded-xl bg-brand-100 px-3 py-2 text-xs text-brand-800">
+      <div className="rounded-xl bg-surface-2 px-3 py-2 text-xs text-ink">
         <strong className="block uppercase tracking-wider">Después</strong>
         Completa tu perfil (municipio, edad e intereses) y participa en la rifa de cierre de la feria.
       </div>
@@ -97,7 +97,7 @@ export function SignUpForm() {
       {state.error && <Notice tone="error">{state.error}</Notice>}
       <button disabled={state.busy} className={`${buttonStyles.primary} w-full`}>{state.busy ? "Creando…" : "Crear cuenta"}</button>
       <p className="text-center text-sm text-muted">
-        ¿Ya tienes cuenta? <Link href={`/ingresar?next=${encodeURIComponent(next)}`} className="font-semibold text-brand-700">Ingresa</Link>
+        ¿Ya tienes cuenta? <Link href={`/ingresar?next=${encodeURIComponent(next)}`} className="font-semibold text-link">Ingresa</Link>
       </p>
     </form>
   );
@@ -130,8 +130,8 @@ export function SignInForm() {
       {state.error && <Notice tone="error">{state.error}</Notice>}
       <button disabled={state.busy} className={`${buttonStyles.primary} w-full`}>{state.busy ? "Ingresando…" : "Ingresar"}</button>
       <div className="flex justify-between text-sm">
-        <Link href="/recuperar" className="font-semibold text-brand-700">Olvidé mi contraseña</Link>
-        <Link href={`/registro?next=${encodeURIComponent(next)}`} className="font-semibold text-brand-700">Crear cuenta</Link>
+        <Link href="/recuperar" className="font-semibold text-link">Olvidé mi contraseña</Link>
+        <Link href={`/registro?next=${encodeURIComponent(next)}`} className="font-semibold text-link">Crear cuenta</Link>
       </div>
     </form>
   );
@@ -179,10 +179,10 @@ export function NewPasswordForm() {
 export function ConsentCheckbox() {
   return (
     <label className="flex items-start gap-2 text-xs text-muted">
-      <input type="checkbox" name="consent" required className="mt-0.5 h-4 w-4 accent-brand-700" />
+      <input type="checkbox" name="consent" required className="mt-0.5 h-4 w-4 accent-primary" />
       <span>
         Acepto la{" "}
-        <Link href="/privacidad" target="_blank" className="font-semibold text-brand-700 underline">
+        <Link href="/privacidad" target="_blank" className="font-semibold text-link underline">
           Política de Privacidad
         </Link>{" "}
         y el uso de mis datos con fines comerciales, incluida su cesión a terceros. Puedo darme de baja cuando quiera.

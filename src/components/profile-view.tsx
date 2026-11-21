@@ -9,6 +9,7 @@ import { PRIVACY_VERSION } from "@/lib/env";
 import { getBrowserClient } from "@/lib/supabase/client";
 import type { Profile } from "@/lib/types";
 import { ConsentCheckbox, Field } from "./auth-forms";
+import { ThemeSelector } from "./theme";
 import { useAuth } from "./auth-provider";
 import { Notice, PageHeader, buttonStyles, inputStyles } from "./ui";
 
@@ -20,7 +21,10 @@ export function ProfileView() {
     return (
       <>
         <PageHeader title="Perfil" />
-        <main className="px-4 py-5"><Notice>Las cuentas se activan al configurar Supabase (ver README).</Notice></main>
+        <main className="space-y-5 px-4 py-5">
+          <Notice>Las cuentas se activan al configurar Supabase (ver README).</Notice>
+          <ThemeSelector />
+        </main>
       </>
     );
   }
@@ -28,11 +32,14 @@ export function ProfileView() {
   if (!user) {
     return (
       <>
-        <PageHeader title="Perfil" subtitle="Tu cuenta de la FISS 2027" />
+        <PageHeader title="Perfil" subtitle="Tu cuenta de Tú Ruta" />
         <main className="space-y-3 px-4 py-5">
           <p className="text-sm text-muted">Crea tu cuenta gratis para obtener cupones, guardar tus datos y participar en la rifa de cierre.</p>
           <Link href="/registro" className={`${buttonStyles.primary} w-full`}>Crear cuenta</Link>
           <Link href="/ingresar" className={`${buttonStyles.secondary} w-full`}>Ya tengo cuenta</Link>
+          <div className="pt-3">
+            <ThemeSelector />
+          </div>
         </main>
       </>
     );
@@ -45,6 +52,7 @@ export function ProfileView() {
       <main className="space-y-5 px-4 py-5">
         {!profile.consent_at ? <ConsentForm profile={profile} /> : <CompleteProfileForm profile={profile} />}
         {profile.consent_at && <OptOut profile={profile} />}
+        <ThemeSelector />
         {profile.role === "admin" && (
           <Link href="/admin" className={`${buttonStyles.secondary} w-full`}>Ir al panel de administración</Link>
         )}
@@ -91,7 +99,7 @@ function ConsentForm({ profile }: { profile: Profile }) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-3 rounded-2xl bg-white p-4">
+    <form onSubmit={onSubmit} className="space-y-3 rounded-2xl bg-surface p-4">
       <h2 className="text-lg font-bold">Un último paso</h2>
       <p className="text-sm text-muted">Confirma tus datos para obtener cupones.</p>
       <Field label="Nombre completo" name="full_name" defaultValue={profile.full_name} required autoComplete="name" />
@@ -124,7 +132,7 @@ function CompleteProfileForm({ profile }: { profile: Profile }) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4 rounded-2xl bg-white p-4">
+    <form onSubmit={onSubmit} className="space-y-4 rounded-2xl bg-surface p-4">
       {profile.profile_completed_at ? (
         <Notice tone="ok"><strong>¡Participas en la rifa de cierre!</strong> Puedes actualizar tus datos cuando quieras.</Notice>
       ) : (
@@ -152,7 +160,7 @@ function CompleteProfileForm({ profile }: { profile: Profile }) {
                 type="button"
                 aria-pressed={on}
                 onClick={() => setInterests(on ? interests.filter((x) => x !== i.value) : [...interests, i.value])}
-                className={`rounded-full px-3 py-1 text-sm ${on ? "bg-brand-700 font-semibold text-white" : "border border-line"}`}
+                className={`rounded-full px-3 py-1 text-sm ${on ? "bg-ink font-semibold text-canvas" : "border border-line"}`}
               >
                 {i.label}
               </button>
@@ -173,7 +181,7 @@ function OptOut({ profile }: { profile: Profile }) {
   const { refreshProfile } = useAuth();
   const optedOut = Boolean(profile.opted_out_at);
   return (
-    <div className="rounded-2xl bg-white p-4 text-sm">
+    <div className="rounded-2xl bg-surface p-4 text-sm">
       <p className="font-semibold">Uso comercial de tus datos</p>
       <p className="mt-1 text-muted">
         {optedOut
@@ -182,7 +190,7 @@ function OptOut({ profile }: { profile: Profile }) {
       </p>
       <button
         type="button"
-        className="mt-2 font-semibold text-brand-700 underline"
+        className="mt-2 font-semibold text-link underline"
         onClick={async () => {
           await getBrowserClient()!.rpc("set_marketing_opt_out", { p_opt_out: !optedOut });
           await refreshProfile();

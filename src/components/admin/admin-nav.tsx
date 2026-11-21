@@ -25,10 +25,10 @@ function ActiveAdminNav() {
 
 function AdminNavView({ pathname }: { pathname: string }) {
   return (
-    <aside className="bg-brand-700 text-white md:sticky md:top-0 md:h-dvh md:w-60 md:shrink-0">
+    <aside className="bg-panel text-on-panel md:sticky md:top-0 md:h-dvh md:w-60 md:shrink-0">
       <div className="flex items-center justify-between px-4 py-4 md:block md:px-5 md:py-6">
-        <p className="font-bold">FISS 2027 · Admin</p>
-        <Link href="/" className="text-xs text-white/70 hover:text-white md:mt-1 md:block">Ver la app →</Link>
+        <p className="font-bold">Tú Ruta · Admin</p>
+        <Link href="/" className="text-xs text-panel-muted hover:text-on-panel md:mt-1 md:block">Ver la app →</Link>
       </div>
       <nav className="no-scrollbar flex gap-1 overflow-x-auto px-3 pb-3 md:block md:space-y-1 md:px-3">
         {links.map((l) => {
@@ -37,7 +37,7 @@ function AdminNavView({ pathname }: { pathname: string }) {
             <Link
               key={l.href}
               href={l.href}
-              className={`block shrink-0 rounded-lg px-3 py-2 text-sm ${active ? "bg-white/15 font-semibold" : "text-white/80 hover:bg-white/10"}`}
+              className={`block shrink-0 rounded-lg px-3 py-2 text-sm ${active ? "bg-on-panel/15 font-semibold" : "text-on-panel/80 hover:bg-on-panel/10"}`}
             >
               {l.label}
             </Link>

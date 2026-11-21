@@ -48,7 +48,7 @@ function DirectoryView({ merchants, categories, couponMerchantIds, initial }: Pr
   return (
     <>
       <PageHeader title="Comercios" back="/">
-        <label className="mt-3 flex items-center gap-2 rounded-xl bg-white px-3 py-2.5 text-ink">
+        <label className="mt-3 flex items-center gap-2 rounded-xl bg-surface px-3 py-2.5 text-ink">
           <SearchIcon className="text-muted" />
           <span className="sr-only">Buscar</span>
           <input
@@ -71,7 +71,7 @@ function DirectoryView({ merchants, categories, couponMerchantIds, initial }: Pr
                 setCategoria(c.slug);
                 update({ categoria: c.slug });
               }}
-              className={`shrink-0 rounded-full px-3.5 py-1 text-sm ${categoria === c.slug ? "bg-accent-500 font-semibold text-white" : "border border-line bg-white"}`}
+              className={`shrink-0 rounded-full px-3.5 py-1 text-sm ${categoria === c.slug ? "bg-primary font-semibold text-on-primary" : "border border-line bg-surface"}`}
             >
               {c.name}
             </button>

@@ -8,11 +8,11 @@ export function Greeting() {
   if (!configured || loading) return null;
   if (!user) {
     return (
-      <Link href="/registro" className="rounded-full bg-white/15 px-3 py-1 text-sm font-medium">
+      <Link href="/registro" className="rounded-full bg-surface-2 px-3 py-1 text-sm font-medium">
         Crear cuenta
       </Link>
     );
   }
   const first = profile?.full_name.split(" ")[0];
-  return <span className="text-sm text-white/85">Hola{first ? `, ${first}` : ""}</span>;
+  return <span className="text-sm text-muted">Hola{first ? `, ${first}` : ""}</span>;
 }

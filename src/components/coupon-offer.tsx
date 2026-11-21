@@ -58,8 +58,8 @@ export function CouponOffer({ coupon, merchantSlug }: { coupon: Coupon; merchant
   }
 
   return (
-    <section className="rounded-2xl border-2 border-dashed border-accent-500 bg-accent-100/60 p-4">
-      <p className="text-[11px] font-semibold uppercase tracking-wider text-accent-600">
+    <section className="rounded-2xl border-2 border-dashed border-primary bg-primary-soft p-4">
+      <p className="text-[11px] font-semibold uppercase tracking-wider text-link">
         {coupon.kind === "abierta" ? "Promoción para registrados" : soldOut ? "Cupón agotado" : `Cupón · quedan ${remaining}`}
       </p>
       <h2 className="mt-1 font-bold">{coupon.title}</h2>

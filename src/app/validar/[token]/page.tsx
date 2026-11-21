@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: "Validar cupón", robots: { index: fa
 /** Modo comercio: enlace propio + PIN, sin crear cuenta. */
 export default function ValidatePage() {
   return (
-    <Suspense fallback={<div className="mx-auto min-h-dvh max-w-md bg-merchant-700" />}>
+    <Suspense fallback={<div className="mx-auto min-h-dvh max-w-md bg-panel" />}>
       <MerchantValidator />
     </Suspense>
   );

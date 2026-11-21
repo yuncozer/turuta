@@ -10,5 +10,6 @@ export const PRIVACY_VERSION = "2026-11";
 /** Consultas que un visitante anónimo hace antes de que se le invite a registrarse. */
 export const SOFT_GATE_VIEWS = Number(process.env.NEXT_PUBLIC_SOFT_GATE_VIEWS ?? 5);
 
-export const FAIR_NAME = "FISS 2027";
+export const APP_NAME = "Tú Ruta";
+export const FAIR_NAME = "Feria Internacional de San Sebastián 2027";
 export const FAIR_TIMEZONE = "America/Caracas";

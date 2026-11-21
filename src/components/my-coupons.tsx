@@ -42,7 +42,7 @@ export function MyCoupons({ offers }: { offers: Offer[] }) {
       <PageHeader title="Cupones" subtitle="Beneficios reales en los locales de la feria" />
       <main className="space-y-6 px-4 py-4">
         {configured && !loading && !user && (
-          <div className="rounded-2xl bg-white p-4">
+          <div className="rounded-2xl bg-surface p-4">
             <p className="font-semibold">Tus cupones aparecen aquí</p>
             <p className="mt-1 text-sm text-muted">Crea tu cuenta gratis con solo tres datos para obtener cupones con QR.</p>
             <div className="mt-3 grid grid-cols-2 gap-2">
@@ -60,7 +60,7 @@ export function MyCoupons({ offers }: { offers: Offer[] }) {
             <ul className="mt-2 space-y-2">
               {claims?.map((c) => (
                 <li key={c.id}>
-                  <Link href={`/cupones?ver=${c.code}`} className="flex items-center justify-between gap-3 rounded-2xl border border-line bg-white p-3">
+                  <Link href={`/cupones?ver=${c.code}`} className="flex items-center justify-between gap-3 rounded-2xl border border-line bg-surface p-3">
                     <div className="min-w-0">
                       <p className="truncate font-semibold">{c.coupon?.title ?? "Cupón"}</p>
                       <p className="truncate text-xs text-muted">{c.coupon?.merchant?.name} · {c.code}</p>
@@ -81,8 +81,8 @@ export function MyCoupons({ offers }: { offers: Offer[] }) {
           <ul className="mt-2 space-y-2">
             {available.map((o) => (
               <li key={o.id}>
-                <Link href={`/comercios/${o.merchant.slug}`} className="block rounded-2xl border border-dashed border-accent-500 bg-white p-3">
-                  <p className="text-[11px] font-semibold uppercase tracking-wider text-accent-600">{o.merchant.name}</p>
+                <Link href={`/comercios/${o.merchant.slug}`} className="block rounded-2xl border border-dashed border-primary bg-surface p-3">
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-link">{o.merchant.name}</p>
                   <p className="font-semibold">{o.title}</p>
                   <p className="text-xs text-muted">
                     {o.kind === "abierta" ? "Sin límite para registrados" : "Cupos limitados"} · hasta el {formatDate(o.valid_until)}

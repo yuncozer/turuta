@@ -1,6 +1,8 @@
-# App FISS 2027 · Feria Conectada (Beta)
+# Tú Ruta · App de la Feria de San Sebastián (Beta)
 
 App web (PWA) de la Feria Internacional de San Sebastián 2027: cronograma, comercios, "Cerca de ti", cupones con QR, validación en el comercio y panel de administración.
+
+**Identidad:** manual de marca de Tú Ruta, aprobado por el cliente el 21/11/2026: modo claro = propuesta A «Crema Ruta», modo oscuro = propuesta B «Noche de Feria». Cada visitante elige Claro, Oscuro o Automático (botón sol/luna en el Inicio y «Apariencia» en el Perfil). Colores por función en `src/app/globals.css`, logos en `public/brand/`. El ícono de la app es provisional hasta recibir el isotipo «R» en vector.
 
 **Stack:** Next.js 16 (App Router, Cache Components) · TypeScript · Tailwind CSS 4 · Supabase (PostgreSQL + Auth + Storage) · Vercel.
 Plan de trabajo y alcance: [`docs/PLAN_BETA.md`](docs/PLAN_BETA.md).

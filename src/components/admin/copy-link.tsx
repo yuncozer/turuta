@@ -10,10 +10,10 @@ export function CopyLink({ path }: { path: string }) {
   const url = `${origin}${path}`;
   return (
     <div className="mt-3 flex gap-2">
-      <input readOnly value={url} className="w-full rounded-lg border border-line bg-cream px-2 py-1.5 font-mono text-xs" onFocus={(e) => e.currentTarget.select()} />
+      <input readOnly value={url} className="w-full rounded-lg border border-line bg-canvas px-2 py-1.5 font-mono text-xs" onFocus={(e) => e.currentTarget.select()} />
       <button
         type="button"
-        className="shrink-0 rounded-lg bg-brand-700 px-3 text-xs font-semibold text-white"
+        className="shrink-0 rounded-lg bg-ink px-3 text-xs font-semibold text-canvas"
         onClick={async () => {
           await navigator.clipboard.writeText(url);
           setCopied(true);

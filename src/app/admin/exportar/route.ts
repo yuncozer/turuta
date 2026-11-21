@@ -25,7 +25,7 @@ export async function GET() {
   }
 
   const wb = new ExcelJS.Workbook();
-  wb.creator = "FISS 2027";
+  wb.creator = "Tú Ruta";
   const sheet = wb.addWorksheet("Usuarios");
   sheet.columns = [
     { header: "Nombre", key: "full_name", width: 28 },
@@ -60,7 +60,7 @@ export async function GET() {
   return new Response(buffer, {
     headers: {
       "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-      "Content-Disposition": `attachment; filename="usuarios-fiss-2027-${date}.xlsx"`,
+      "Content-Disposition": `attachment; filename="usuarios-tu-ruta-${date}.xlsx"`,
       "Cache-Control": "no-store",
     },
   });

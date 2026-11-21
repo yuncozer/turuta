@@ -43,12 +43,12 @@ async function ScheduleEditor({ searchParams }: PageProps<"/admin/cronograma">) 
                   <li key={e.id} className="rounded-xl border border-line">
                     <details>
                       <summary className="flex cursor-pointer items-center gap-3 p-3">
-                        <span className="w-16 shrink-0 font-bold text-accent-600">{formatTime(e.starts_at)}</span>
+                        <span className="w-16 shrink-0 font-bold text-link">{formatTime(e.starts_at)}</span>
                         <span className="min-w-0 flex-1">
                           <span className="block font-semibold">{e.title}</span>
                           <span className="block text-xs text-muted">{e.venue}{!e.is_published && " · oculto"}</span>
                         </span>
-                        <span className="text-xs font-semibold text-brand-700">Editar</span>
+                        <span className="text-xs font-semibold text-link">Editar</span>
                       </summary>
                       <div className="border-t border-line p-3">
                         <EventForm event={e} categories={cats} />
@@ -107,7 +107,7 @@ function EventForm({ event, categories }: { event?: FairEvent; categories: Categ
         <textarea name="description" defaultValue={event?.description} rows={2} className={inputStyles} />
       </label>
       <label className="flex items-center gap-2 text-sm">
-        <input type="checkbox" name="is_published" defaultChecked={event?.is_published ?? true} className="h-4 w-4 accent-brand-700" />
+        <input type="checkbox" name="is_published" defaultChecked={event?.is_published ?? true} className="h-4 w-4 accent-primary" />
         Visible en la app
       </label>
       <div>

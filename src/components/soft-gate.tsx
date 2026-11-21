@@ -34,7 +34,7 @@ export function SoftGateProvider({ children }: { children: React.ReactNode }) {
       {children}
       {open && (
         <div role="dialog" aria-modal="true" aria-labelledby="gate-title" className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 sm:items-center">
-          <div className="w-full max-w-md rounded-t-3xl bg-white p-6 sm:rounded-3xl">
+          <div className="w-full max-w-md rounded-t-3xl bg-surface p-6 sm:rounded-3xl">
             <h2 id="gate-title" className="text-xl font-bold">¿Te está gustando la feria?</h2>
             <p className="mt-2 text-sm text-muted">
               Crea tu cuenta gratis en segundos para obtener cupones, ver lo que está cerca de ti y participar en la rifa de cierre.

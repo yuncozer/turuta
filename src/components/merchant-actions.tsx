@@ -43,7 +43,7 @@ export function MerchantActions({ merchant }: { merchant: Merchant }) {
       </a>
       {merchant.whatsapp ? (
         <a
-          href={whatsappLink(merchant.whatsapp, `Hola, te encontré en la app de la FISS 2027.`)}
+          href={whatsappLink(merchant.whatsapp, `Hola, te encontré en la app Tú Ruta.`)}
           target="_blank"
           rel="noopener"
           onClick={() => {

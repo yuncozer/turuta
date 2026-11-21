@@ -16,7 +16,7 @@ export const metadata: Metadata = { title: "Editar comercio" };
 export default function MerchantEditPage(props: PageProps<"/admin/comercios/[id]">) {
   return (
     <>
-      <Link href="/admin/comercios" className="mb-2 inline-block text-sm font-semibold text-brand-700">← Comercios</Link>
+      <Link href="/admin/comercios" className="mb-2 inline-block text-sm font-semibold text-link">← Comercios</Link>
       <Suspense fallback={<AdminLoading />}>
         <MerchantEditor {...props} />
       </Suspense>
@@ -87,7 +87,7 @@ async function MerchantEditor({ params, searchParams }: PageProps<"/admin/comerc
             <ImageUpload name="logo_url" label="Logo (cuadrado, mín. 500×500)" folder="logos" defaultValue={m?.logo_url ?? ""} />
             <ImageUpload name="banner_url" label="Banner (1600×900)" folder="banners" defaultValue={m?.banner_url ?? ""} />
             <label className="flex items-center gap-2 text-sm sm:col-span-2">
-              <input type="checkbox" name="is_published" defaultChecked={m?.is_published ?? false} className="h-4 w-4 accent-brand-700" />
+              <input type="checkbox" name="is_published" defaultChecked={m?.is_published ?? false} className="h-4 w-4 accent-primary" />
               Publicado en la app
             </label>
             <div className="sm:col-span-2">
@@ -137,7 +137,7 @@ async function MerchantEditor({ params, searchParams }: PageProps<"/admin/comerc
                 ))}
               </ul>
               <details className="mt-4" open={coupons.length === 0}>
-                <summary className="cursor-pointer text-sm font-semibold text-brand-700">+ Nuevo cupón</summary>
+                <summary className="cursor-pointer text-sm font-semibold text-link">+ Nuevo cupón</summary>
                 <div className="mt-3"><CouponForm merchantId={m.id} /></div>
               </details>
             </Card>

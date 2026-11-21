@@ -54,7 +54,7 @@ async function MerchantsTable() {
                   </span>
                 </td>
                 <td className={`${t.td} text-right`}>
-                  <Link href={`/admin/comercios/${m.id}`} className="font-semibold text-brand-700">Editar</Link>
+                  <Link href={`/admin/comercios/${m.id}`} className="font-semibold text-link">Editar</Link>
                 </td>
               </tr>
             ))}

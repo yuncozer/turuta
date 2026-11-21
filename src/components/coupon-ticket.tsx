@@ -31,29 +31,29 @@ export function CouponTicket({ claim, onClose }: { claim: MyClaim; onClose: () =
     canvas.width = 720;
     canvas.height = 1000;
     const ctx = canvas.getContext("2d")!;
-    ctx.fillStyle = "#3d1d6e";
+    ctx.fillStyle = "#C65D3B";
     ctx.fillRect(0, 0, 720, 1000);
     ctx.fillStyle = "#ffffff";
     ctx.beginPath();
     ctx.roundRect(40, 40, 640, 920, 32);
     ctx.fill();
     ctx.textAlign = "center";
-    ctx.fillStyle = "#0f6b6b";
-    ctx.font = "600 26px system-ui, sans-serif";
+    ctx.fillStyle = "#A9472A";
+    ctx.font = "700 24px Montserrat, system-ui, sans-serif";
     ctx.fillText((merchant?.name ?? "").toUpperCase(), 360, 110);
-    ctx.fillStyle = "#1d1530";
-    ctx.font = "700 40px system-ui, sans-serif";
-    ctx.fillText(claim.coupon?.title ?? "Cupón FISS 2027", 360, 170, 600);
+    ctx.fillStyle = "#111111";
+    ctx.font = "800 40px Montserrat, system-ui, sans-serif";
+    ctx.fillText(claim.coupon?.title ?? "Cupón Tú Ruta", 360, 170, 600);
     ctx.drawImage(img, 160, 210, 400, 400);
     ctx.font = "700 44px ui-monospace, monospace";
     ctx.fillText(claim.code, 360, 680);
-    ctx.fillStyle = "#6b6478";
+    ctx.fillStyle = "#5E5345";
     ctx.font = "26px system-ui, sans-serif";
     ctx.fillText("Muestra este código en caja. Es único y de un solo uso.", 360, 740, 600);
     if (claim.coupon) ctx.fillText(`Válido hasta el ${formatDate(claim.coupon.valid_until)}`, 360, 785);
-    ctx.fillStyle = "#e8622c";
-    ctx.font = "700 30px system-ui, sans-serif";
-    ctx.fillText("FISS 2027", 360, 900);
+    ctx.fillStyle = "#C65D3B";
+    ctx.font = "800 30px Montserrat, system-ui, sans-serif";
+    ctx.fillText("TÚ RUTA", 360, 900);
     const link = document.createElement("a");
     link.download = `cupon-${claim.code}.png`;
     link.href = canvas.toDataURL("image/png");
@@ -62,15 +62,15 @@ export function CouponTicket({ claim, onClose }: { claim: MyClaim; onClose: () =
 
   return (
     <>
-      <header className="flex items-center gap-2 bg-brand-700 px-4 pb-4 pt-[calc(env(safe-area-inset-top)+16px)] text-white">
-        <button type="button" onClick={onClose} aria-label="Volver" className="-ml-1 rounded-full p-1 hover:bg-white/10">
+      <header className="flex items-center gap-2 bg-header px-4 pb-4 pt-[calc(env(safe-area-inset-top)+16px)] text-on-header">
+        <button type="button" onClick={onClose} aria-label="Volver" className="-ml-1 rounded-full p-1 hover:bg-surface/10">
           <BackIcon />
         </button>
         <h1 className="text-xl font-bold">Tu cupón</h1>
       </header>
       <main className="px-4 py-4">
-        <div className="rounded-3xl bg-white p-5 text-center shadow-sm">
-          <p className="text-[11px] font-semibold uppercase tracking-wider text-merchant-700">{merchant?.name}</p>
+        <div className="rounded-3xl bg-surface p-5 text-center shadow-sm">
+          <p className="text-[11px] font-semibold uppercase tracking-wider text-link">{merchant?.name}</p>
           <h2 className="mt-1 text-xl font-bold">{claim.coupon?.title}</h2>
           <div className={`relative mx-auto mt-4 aspect-square w-56 ${claim.redeemed_at || expired ? "opacity-25" : ""}`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}

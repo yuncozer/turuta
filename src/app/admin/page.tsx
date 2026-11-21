@@ -78,7 +78,7 @@ async function Dashboard() {
                   <td className={`${t.td} text-right`}>{r.claims}</td>
                   <td className={`${t.td} text-right`}>{r.redemptions}</td>
                   <td className={`${t.td} text-right`}>
-                    <Link href={`/admin/comercios/${r.merchant_id}`} className="font-semibold text-brand-700">Editar</Link>
+                    <Link href={`/admin/comercios/${r.merchant_id}`} className="font-semibold text-link">Editar</Link>
                   </td>
                 </tr>
               ))}

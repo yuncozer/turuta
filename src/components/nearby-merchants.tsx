@@ -29,7 +29,7 @@ export function NearbyMerchants({ merchants, couponMerchantIds }: { merchants: M
         {status === "granted" ? (
           <span className="flex items-center gap-1 text-xs text-muted"><PinIcon width={12} height={12} /> Ubicación activa</span>
         ) : (
-          <button type="button" onClick={request} className="text-xs font-semibold text-brand-700" disabled={status === "asking"}>
+          <button type="button" onClick={request} className="text-xs font-semibold text-link" disabled={status === "asking"}>
             {status === "asking" ? "Buscando…" : status === "denied" ? "Ubicación bloqueada" : "Activar ubicación"}
           </button>
         )}
@@ -42,7 +42,7 @@ export function NearbyMerchants({ merchants, couponMerchantIds }: { merchants: M
           </li>
         ))}
       </ul>
-      <Link href="/comercios" className="mt-3 block text-center text-sm font-semibold text-brand-700">Ver todos los comercios</Link>
+      <Link href="/comercios" className="mt-3 block text-center text-sm font-semibold text-link">Ver todos los comercios</Link>
     </section>
   );
 }

@@ -23,10 +23,10 @@ export function TodayAtFair({ events }: { events: FairEvent[] }) {
   const { event, today } = next;
   return (
     <section className="px-4">
-      <Link href="/cronograma" className="block rounded-2xl bg-brand-700 p-4 text-white">
-        <p className="text-[11px] font-semibold uppercase tracking-wider text-white/70">{today ? "Hoy en la feria" : `Próximo · ${dayLabel(dayKey(event.starts_at))}`}</p>
+      <Link href="/cronograma" className="block rounded-2xl bg-panel p-4 text-on-panel">
+        <p className="text-[11px] font-semibold uppercase tracking-wider text-panel-muted">{today ? "Hoy en la feria" : `Próximo · ${dayLabel(dayKey(event.starts_at))}`}</p>
         <p className="mt-1 font-bold">{event.title} · {formatTime(event.starts_at)}</p>
-        <p className="text-sm text-white/75">{event.venue}</p>
+        <p className="text-sm text-panel-muted">{event.venue}</p>
       </Link>
     </section>
   );

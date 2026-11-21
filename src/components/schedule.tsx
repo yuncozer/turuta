@@ -21,7 +21,7 @@ export function Schedule({ events, categories }: { events: FairEvent[]; categori
 
   return (
     <>
-      <header className="sticky top-0 z-20 bg-brand-700 px-4 pb-3 pt-[calc(env(safe-area-inset-top)+16px)] text-white">
+      <header className="sticky top-0 z-20 bg-header px-4 pb-3 pt-[calc(env(safe-area-inset-top)+16px)] text-on-header">
         <h1 className="text-xl font-bold">Cronograma</h1>
         <div role="tablist" aria-label="Días" className="no-scrollbar mt-3 flex gap-2 overflow-x-auto">
           {days.map((d) => (
@@ -30,7 +30,7 @@ export function Schedule({ events, categories }: { events: FairEvent[]; categori
               role="tab"
               aria-selected={d === day}
               onClick={() => setDay(d)}
-              className={`shrink-0 rounded-full px-3.5 py-1.5 text-sm font-semibold ${d === day ? "bg-accent-500 text-white" : "bg-white text-ink"}`}
+              className={`shrink-0 rounded-full px-3.5 py-1.5 text-sm font-semibold ${d === day ? "bg-primary text-on-primary" : "bg-surface text-ink"}`}
             >
               {dayLabel(d)}
             </button>
@@ -45,7 +45,7 @@ export function Schedule({ events, categories }: { events: FairEvent[]; categori
               key={c.slug}
               onClick={() => setCategory(c.slug)}
               aria-pressed={category === c.slug}
-              className={`shrink-0 rounded-full px-3.5 py-1 text-sm ${category === c.slug ? "bg-accent-500 font-semibold text-white" : "border border-line bg-white"}`}
+              className={`shrink-0 rounded-full px-3.5 py-1 text-sm ${category === c.slug ? "bg-primary font-semibold text-on-primary" : "border border-line bg-surface"}`}
             >
               {c.name}
             </button>
@@ -54,8 +54,8 @@ export function Schedule({ events, categories }: { events: FairEvent[]; categori
 
         <ul className="mt-3 space-y-2">
           {visible.map((e) => (
-            <li key={e.id} className="flex gap-3 rounded-2xl border border-line bg-white p-3">
-              <p className="w-16 shrink-0 text-sm font-bold text-accent-600">{formatTime(e.starts_at)}</p>
+            <li key={e.id} className="flex gap-3 rounded-2xl border border-line bg-surface p-3">
+              <p className="w-16 shrink-0 text-sm font-bold text-link">{formatTime(e.starts_at)}</p>
               <div className="min-w-0">
                 <p className="font-semibold">{e.title}</p>
                 <p className="text-xs text-muted">{e.venue}</p>

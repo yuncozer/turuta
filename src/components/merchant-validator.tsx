@@ -72,9 +72,9 @@ export function MerchantValidator() {
   }, [token, login]);
 
   return (
-    <div className="mx-auto min-h-dvh max-w-md bg-cream">
-      <header className="bg-merchant-700 px-4 pb-4 pt-[calc(env(safe-area-inset-top)+16px)] text-white">
-        <p className="text-[11px] font-semibold uppercase tracking-wider text-white/70">Modo comercio</p>
+    <div className="mx-auto min-h-dvh max-w-md bg-canvas">
+      <header className="bg-panel px-4 pb-4 pt-[calc(env(safe-area-inset-top)+16px)] text-on-panel">
+        <p className="text-[11px] font-semibold uppercase tracking-wider text-panel-muted">Modo comercio</p>
         <h1 className="text-xl font-bold">{portal ? portal.merchant.name : "Validar cupón"}</h1>
       </header>
       <main className="px-4 py-4">
@@ -82,7 +82,7 @@ export function MerchantValidator() {
           <Notice>El modo comercio se activa al configurar Supabase.</Notice>
         ) : !pin || !portal ? (
           <form
-            className="space-y-3 rounded-2xl bg-white p-4"
+            className="space-y-3 rounded-2xl bg-surface p-4"
             onSubmit={(e) => {
               e.preventDefault();
               void login(String(new FormData(e.currentTarget).get("pin")));
@@ -91,7 +91,7 @@ export function MerchantValidator() {
             <p className="text-sm text-muted">Ingresa el PIN de tu comercio para validar cupones.</p>
             <input name="pin" type="password" inputMode="numeric" autoComplete="off" pattern="[0-9]{4,8}" required placeholder="PIN" className={`${inputStyles} text-center text-2xl tracking-[0.5em]`} />
             {error && <Notice tone="error">{error}</Notice>}
-            <button disabled={busy} className={`${buttonStyles.primary} w-full !bg-merchant-700`}>{busy ? "Verificando…" : "Entrar"}</button>
+            <button disabled={busy} className={`${buttonStyles.primary} w-full`}>{busy ? "Verificando…" : "Entrar"}</button>
           </form>
         ) : (
           <Redeemer
@@ -144,7 +144,7 @@ function Redeemer({ token, pin, portal, onLogout, onRefresh }: { token: string; 
       {scanning ? (
         <Scanner onCode={redeem} onClose={() => setScanning(false)} />
       ) : (
-        <button type="button" onClick={() => { setResult(null); setScanning(true); }} className="flex aspect-[4/3] w-full flex-col items-center justify-center gap-2 rounded-3xl bg-brand-900 text-white/80">
+        <button type="button" onClick={() => { setResult(null); setScanning(true); }} className="flex aspect-[4/3] w-full flex-col items-center justify-center gap-2 rounded-3xl bg-panel text-on-panel/80">
           <ScanIcon width={48} height={48} />
           <span className="text-sm">Toca para escanear el QR del cliente</span>
         </button>
@@ -159,16 +159,16 @@ function Redeemer({ token, pin, portal, onLogout, onRefresh }: { token: string; 
       >
         <label className="sr-only" htmlFor="code">Código del cupón</label>
         <input id="code" value={code} onChange={(e) => setCode(e.target.value.toUpperCase())} placeholder="o escribe el código: FISS-____-__" autoCapitalize="characters" autoComplete="off" className={`${inputStyles} font-mono`} />
-        <button disabled={busy || !code} className={`${buttonStyles.primary} !bg-merchant-700 shrink-0`}>Validar</button>
+        <button disabled={busy || !code} className={`${buttonStyles.primary} shrink-0`}>Validar</button>
       </form>
 
       {busy && <p className="text-center text-sm text-muted">Validando…</p>}
       {result && <ResultCard result={result} />}
 
-      <section className="rounded-2xl bg-white p-4 text-sm">
+      <section className="rounded-2xl bg-surface p-4 text-sm">
         <div className="flex items-center justify-between">
           <p className="font-semibold">Canjes de hoy: {today}</p>
-          <button type="button" onClick={onRefresh} className="text-xs font-semibold text-merchant-700">Actualizar</button>
+          <button type="button" onClick={onRefresh} className="text-xs font-semibold text-link">Actualizar</button>
         </div>
         <ul className="mt-2 space-y-1 text-muted">
           {portal.coupons.map((c) => (
@@ -234,10 +234,10 @@ function Scanner({ onCode, onClose }: { onCode: (code: string) => void; onClose:
   return (
     <div className="relative overflow-hidden rounded-3xl bg-black">
       <video ref={videoRef} className="aspect-[4/3] w-full object-cover" muted playsInline />
-      <button type="button" onClick={onClose} aria-label="Cerrar cámara" className="absolute right-3 top-3 rounded-full bg-white/90 p-1.5">
+      <button type="button" onClick={onClose} aria-label="Cerrar cámara" className="absolute right-3 top-3 rounded-full bg-surface/90 p-1.5">
         <XIcon />
       </button>
-      {error && <p className="absolute inset-x-3 bottom-3 rounded-xl bg-white p-2 text-center text-sm text-danger">{error}</p>}
+      {error && <p className="absolute inset-x-3 bottom-3 rounded-xl bg-surface p-2 text-center text-sm text-danger">{error}</p>}
     </div>
   );
 }
