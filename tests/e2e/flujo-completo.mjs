@@ -79,13 +79,13 @@ try {
 
   step("Obtener cupón");
   await page.getByRole("button", { name: "Obtener cupón" }).click();
-  await page.waitForURL(/\/cupones\?ver=FISS-/);
+  await page.waitForURL(/\/cupones\?ver=TR-/);
   const code = new URL(page.url()).searchParams.get("ver");
   await page.getByAltText(/Código QR/).waitFor();
   await shot(page, "05-cupon-qr");
   const download = page.waitForEvent("download");
   await page.getByRole("button", { name: "Descargar como imagen" }).click();
-  assert.match((await download).suggestedFilename(), /^cupon-FISS-/);
+  assert.match((await download).suggestedFilename(), /^cupon-TR-/);
 
   step("Completar perfil (rifa)");
   await page.goto(`${BASE}/perfil`);

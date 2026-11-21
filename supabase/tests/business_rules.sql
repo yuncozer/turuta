@@ -54,12 +54,12 @@ begin
   a := public.claim_coupon('00000000-0000-4000-a000-000000000003');
   b := public.claim_coupon('00000000-0000-4000-a000-000000000003');
   assert a.id = b.id, 'claim idempotente';
-  assert a.code ~ '^FISS-[A-Z0-9]{4}-[A-Z0-9]{2}$', 'formato de código ' || a.code;
+  assert a.code ~ '^TR-[A-Z0-9]{4}-[A-Z0-9]{2}$', 'formato de código ' || a.code;
 end $$;
 -- Un visitante no puede escribir directamente ni volverse admin.
 do $$ begin
   insert into public.coupon_claims (coupon_id, user_id, code)
-  values ('00000000-0000-4000-a000-000000000001', '22222222-2222-4222-8222-222222222222', 'FISS-HACK-00');
+  values ('00000000-0000-4000-a000-000000000001', '22222222-2222-4222-8222-222222222222', 'TR-HACK-00');
   raise exception 'insert directo debería fallar';
 exception when insufficient_privilege then null;
 end $$;

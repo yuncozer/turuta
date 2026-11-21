@@ -158,7 +158,7 @@ function Redeemer({ token, pin, portal, onLogout, onRefresh }: { token: string; 
         className="flex gap-2"
       >
         <label className="sr-only" htmlFor="code">Código del cupón</label>
-        <input id="code" value={code} onChange={(e) => setCode(e.target.value.toUpperCase())} placeholder="o escribe el código: FISS-____-__" autoCapitalize="characters" autoComplete="off" className={`${inputStyles} font-mono`} />
+        <input id="code" value={code} onChange={(e) => setCode(e.target.value.toUpperCase())} placeholder="o escribe el código: TR-____-__" autoCapitalize="characters" autoComplete="off" className={`${inputStyles} font-mono`} />
         <button disabled={busy || !code} className={`${buttonStyles.primary} shrink-0`}>Validar</button>
       </form>
 

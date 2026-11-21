@@ -113,7 +113,7 @@ merchants           id, slug, name, category, description, logo_url, banner_url,
 coupons             id, merchant_id, title, terms, type ('limited'|'open'),
                     total_quota int null, remaining int null, valid_from, valid_until,
                     per_user_limit int default 1, is_active bool
-coupon_claims       id, coupon_id, user_id, code (FISS-XXXX-XX, único), claimed_at,
+coupon_claims       id, coupon_id, user_id, code (TR-XXXX-XX, único), claimed_at,
                     redeemed_at null, redeemed_by_merchant_id
                     UNIQUE(coupon_id, user_id)
 events              id, title, category, venue, starts_at, ends_at, day, description, image_url
